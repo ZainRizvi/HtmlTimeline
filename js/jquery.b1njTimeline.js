@@ -1,10 +1,10 @@
-/*! jQuery B1njTimeline - v1.0
-* https://github.com/b1nj/B1njTimeline
+/*! jQuery htmlTimeline - v1.0
+* https://github.com/b1nj/htmlTimeline
 * Copyright (c) 2012 b1nj Licensed MIT */
 
 ;(function ( $, window, undefined ) {
 
-    var pluginName = 'b1njTimeline',
+    var pluginName = 'htmlTimeline',
         document = window.document,
         defaults = {
             height: 400,
@@ -26,7 +26,7 @@
     Plugin.prototype.init = function () {
         var self = this;
 
-        $(this.element).addClass('events').wrap('<div class="b1njTimeline" />');
+        $(this.element).addClass('events').wrap('<div class="htmlTimeline" />');
 
         this.$element = $(this.element).parent();
         this.$element.css('height', this.options.height);

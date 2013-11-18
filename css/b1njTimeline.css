@@ -1,23 +1,23 @@
 /* CSS Inspired by @csswizardry http://csswizardry.com/2011/03/coding-up-a-semantic-lean-timeline/ */
-.b1njTimeline {
+.htmlTimeline {
     background : url(f43059.gif) top center repeat-y;
     width : 800px;
     padding : 50px 0;
     margin :0 auto 50px auto;
     position: relative;
 }
-    .b1njTimeline ol {
+    .htmlTimeline ol {
         margin: 0;
         padding: 0;
         list-style: none;
     }
-    .b1njTimeline * {
+    .htmlTimeline * {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
     }
-    .b1njTimeline .events:before, /* The dot */
-    .b1njTimeline .events:after { /* The arrow */
+    .htmlTimeline .events:before, /* The dot */
+    .htmlTimeline .events:after { /* The arrow */
         content: " ";
         width: 10px;
         height: 10px;
@@ -31,7 +31,7 @@
         -moz-border-radius: 20px;
         border-radius: 20px;
     }
-    .b1njTimeline .events:after {
+    .htmlTimeline .events:after {
         margin-left: -7px;
         background: none;
         border: 7px solid transparent;
@@ -44,14 +44,14 @@
         -moz-border-radius:0;
         border-radius:0;
     }
-    .b1njTimeline .events li {
+    .htmlTimeline .events li {
         position: absolute;
         width: 330px;
         margin: 0 0 10px 0;
         top: 0;
         text-align:right;
     }
-        .b1njTimeline .event {
+        .htmlTimeline .event {
             position: absolute;
             width: 330px;
             padding: 5px;
@@ -65,20 +65,20 @@
             box-shadow: 1px -2px 0px #fdf5b0;
             cursor: pointer;
         }
-        .b1njTimeline .event:hover,
-        .b1njTimeline .event.open {
+        .htmlTimeline .event:hover,
+        .htmlTimeline .event.open {
             z-index: 100;
             background: #fcf085;
             border: 1px solid #d8d566;
         }
-        .b1njTimeline time {
+        .htmlTimeline time {
             font-weight: bold;
         }
-        .b1njTimeline .events p {
+        .htmlTimeline .events p {
             margin: 0;
         }
-        .b1njTimeline .events li:before,
-        .b1njTimeline .events li:after {
+        .htmlTimeline .events li:before,
+        .htmlTimeline .events li:after {
             content: " ";
             width: 70px;
             height: 1px;
@@ -87,11 +87,11 @@
             top: 0;
             display: none;
         }
-        .b1njTimeline .events li:nth-of-type(even) {
+        .htmlTimeline .events li:nth-of-type(even) {
             text-align: left;
             right: 0;
         }
-        .b1njTimeline .events li:nth-of-type(odd):before { /* Move branches */
+        .htmlTimeline .events li:nth-of-type(odd):before { /* Move branches */
             display: block;
             background: #d8d566;
             background: -moz-linear-gradient(left, #d8d566 0%, #f43059 100%);
@@ -102,7 +102,7 @@
             background: linear-gradient(to right, #d8d566 0%,#f43059 100%);
             left: 100%;
         }
-        .b1njTimeline .events li:nth-of-type(even):after { /* Move branches */
+        .htmlTimeline .events li:nth-of-type(even):after { /* Move branches */
             display: block;
             background: #f43059;
             background: -moz-linear-gradient(left,  #f43059 0%, #d8d566 100%);
@@ -113,12 +113,12 @@
             background: linear-gradient(to right,  #f43059 0%,#d8d566 100%);
             right: 100%;
         }
-        .b1njTimeline .description {
+        .htmlTimeline .description {
             height: 0;
             overflow: hidden;
             text-align: left;
         }
-        .b1njTimeline .description:before {
+        .htmlTimeline .description:before {
             content: '+';
             display: block;
             width: 1em;
@@ -126,18 +126,18 @@
             position: absolute;
             top: 0em;
         }
-        .b1njTimeline .events li:nth-of-type(even) .description:before {
+        .htmlTimeline .events li:nth-of-type(even) .description:before {
             right: 0;
         }
-            .b1njTimeline .open .description {
+            .htmlTimeline .open .description {
                 margin-top: 10px;
                 height: auto;
                 -moz-transition: 1s ease;
             }
-            .b1njTimeline .open .description:before {
+            .htmlTimeline .open .description:before {
                 content: '-';
             }
-    .b1njTimeline .timeline_dates li {
+    .htmlTimeline .timeline_dates li {
         display: block;
         position: absolute;
         left: 50%;
@@ -145,11 +145,11 @@
         top: 0px;
         margin-left: 10px;
     }
-        .b1njTimeline .timeline_dates li div {
+        .htmlTimeline .timeline_dates li div {
             position: absolute;
             margin-top: -.6em;
         }
-        .b1njTimeline .timeline_dates li:before {
+        .htmlTimeline .timeline_dates li:before {
             content: " ";
             width: 5px;
             height: 1px;
