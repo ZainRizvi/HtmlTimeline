@@ -16,9 +16,9 @@
         this.element = element;
         this.$element = null;
         this.options = $.extend( {}, defaults, options) ;
-        this._dateDebut = false;
-        this._dateFin = false;
-        this._duree = false;
+        this._dateStart = false;
+        this._dateEnd = false;
+        this._duration = false;
         this._name = pluginName;
         this.init();
     }
@@ -31,12 +31,12 @@
         this.$element = $(this.element).parent();
         this.$element.css('height', this.options.height);
 
-        // Recherche date la plus ancienne et la plus récente
-        this._dateDebut = new moment(this.$element.find('li:first time').attr('datetime'), 'YYYY-MM-DD');
-        this._dateFin = new moment(this.$element.find('li:last time').attr('datetime'), 'YYYY-MM-DD');
-        this._duree = this._dateFin.diff(this._dateDebut);
+        // Find the old date, the newest date, and the time elapsed in between
+        this._dateStart = new moment(this.$element.find('li:first time').attr('datetime'), 'YYYY-MM-DD');
+        this._dateEnd = new moment(this.$element.find('li:last time').attr('datetime'), 'YYYY-MM-DD');
+        this._duration = this._dateEnd.diff(this._dateStart);
 
-        // Placement de l'évenement
+        // Convert each <li> into an event
         this.$element.find('li').each(function () {
             $li = $(this);
             $li.wrapInner('<div class="event" />');
@@ -48,31 +48,33 @@
             });
         });
 
-        // Mise en place des dates graduées
-        var date = this._dateDebut.year();
-        var num_years = this._dateFin.diff(this._dateDebut, 'years');
+		//
+        // Create the timeline bar
+		//
+        var date = this._dateStart.year();
+        var num_years = this._dateEnd.diff(this._dateStart, 'years');
 
-        var tranche = 1;
+        var tickDuration = 1;
         if (num_years > 500) {
-            tranche = 100;
+            tickDuration = 100;
         } else if (num_years > 250) {
-            tranche = 50;
+            tickDuration = 50;
         } else if (num_years > 100) {
-            tranche = 25;
+            tickDuration = 25;
         } else if (num_years > 50) {
-            tranche = 10;
+            tickDuration = 10;
         } else if (num_years > 25) {
-            tranche = 5;
+            tickDuration = 5;
         } else if (num_years > 10) {
-            tranche = 2;
+            tickDuration = 2;
         }
         date = date + 1;
-        while (date % tranche != 0) {
+        while (date % tickDuration != 0) {
             date = date + 1;
         }
 
         var html_dates = '<ol class="timeline_dates">';
-        for (var i = date; i <= this._dateFin.year(); i = i + tranche) {
+        for (var i = date; i <= this._dateEnd.year(); i = i + tickDuration) {
             var top = self._getTop(new moment(i.toString(), 'YYYY'));
             html_dates += '<li style="top: ' + top + 'px"><div>' + i + '</div></li>';
         }
@@ -83,7 +85,7 @@
     };
 
     Plugin.prototype._getTop = function (date) {
-        var top = date.diff(this._dateDebut) * this.options.height / this._duree;
+        var top = date.diff(this._dateStart) * this.options.height / this._duration;
         top = Math.abs(parseInt(top));
         top = top + this.options.margeTop;
         return top;
