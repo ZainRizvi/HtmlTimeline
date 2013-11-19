@@ -37,7 +37,7 @@
         this._duration = this._dateEnd.diff(this._dateStart);
 
         // Convert each <li> into an event
-        this.$element.find('ol > li').each(function () {
+        this.$element.find('ol.events > li').each(function () {
             $li = $(this);
             $li.wrapInner('<div class="event" />');
             var date = new moment($li.find('time').attr('datetime'), 'YYYY-MM-DD')
@@ -80,7 +80,7 @@
         }
         html_dates += '<ol>';
 
-        this.$element.find('ol').after(html_dates);
+        this.$element.find('ol.events').after(html_dates);
 
     };
 
