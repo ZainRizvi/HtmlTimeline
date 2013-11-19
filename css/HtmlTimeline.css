@@ -44,7 +44,8 @@
         -moz-border-radius:0;
         border-radius:0;
     }
-    .htmlTimeline .events li {
+	
+    .htmlTimeline .events > li {
         position: absolute;
         width: 330px;
         margin: 0 0 10px 0;
@@ -77,8 +78,9 @@
         .htmlTimeline .events p {
             margin: 0;
         }
-        .htmlTimeline .events li:before,
-        .htmlTimeline .events li:after {
+		
+        .htmlTimeline .events > li:before,
+        .htmlTimeline .events > li:after {
             content: " ";
             width: 70px;
             height: 1px;
@@ -87,11 +89,12 @@
             top: 0;
             display: none;
         }
-        .htmlTimeline .events li:nth-of-type(even) {
+		
+        .htmlTimeline .events > li:nth-of-type(even) {
             text-align: left;
             right: 0;
         }
-        .htmlTimeline .events li:nth-of-type(odd):before { /* Move branches */
+        .htmlTimeline .events > li:nth-of-type(odd):before { /* Move branches */
             display: block;
             background: #d8d566;
             background: -moz-linear-gradient(left, #d8d566 0%, #f43059 100%);
@@ -102,7 +105,8 @@
             background: linear-gradient(to right, #d8d566 0%,#f43059 100%);
             left: 100%;
         }
-        .htmlTimeline .events li:nth-of-type(even):after { /* Move branches */
+		
+        .htmlTimeline .events > li:nth-of-type(even):after { /* Move branches */
             display: block;
             background: #f43059;
             background: -moz-linear-gradient(left,  #f43059 0%, #d8d566 100%);
@@ -126,7 +130,8 @@
             position: absolute;
             top: 0em;
         }
-        .htmlTimeline .events li:nth-of-type(even) .description:before {
+
+        .htmlTimeline .events > li:nth-of-type(even) .description:before {
             right: 0;
         }
             .htmlTimeline .open .description {
