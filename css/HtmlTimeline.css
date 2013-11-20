@@ -5,8 +5,9 @@
     margin :0 auto 50px auto;
     position: relative;
 }
+
     .htmlTimeline .timelineContents {
-        background : url(f43059.gif) top center repeat-y;
+        background : url(f43059.gif) 50px 0px repeat-y;     /*The vertical line of the timeline*/
         position: relative;
     }
 
@@ -30,13 +31,14 @@
         background: #f43059;
         position: absolute;
         top: 0;
-        left: 50%;
+        left: 50px;
         margin-left: -5px;
         -webkit-border-radius: 20px;
         -moz-border-radius: 20px;
         border-radius: 20px;
     }
-    .htmlTimeline .events:after {
+
+    .htmlTimeline .events:after { /* The arrow */
         margin-left: -7px;
         background: none;
         border: 7px solid transparent;
@@ -84,7 +86,8 @@
             margin: 0;
         }
 		
-        .htmlTimeline .events > li:before,
+        /*.htmlTimeline .events > li:before,*/
+        /* Draw the branches that connect events to the timeline */
         .htmlTimeline .events > li:after {
             content: " ";
             width: 70px;
@@ -95,11 +98,15 @@
             display: none;
         }
 		
-        .htmlTimeline .events > li:nth-of-type(even) {
+        /*:nth-of-type(even)*/
+        /* Move events to their proper horizontal distance from the timeline */
+        .htmlTimeline .events > li {
             text-align: left;
-            right: 0;
+            left: 120px; /*left distance = */
         }
-        .htmlTimeline .events > li:nth-of-type(odd):before { /* Move branches */
+
+        /* Move branches to the correct horizontal position */
+        /*.htmlTimeline .events > li:nth-of-type(odd):before { 
             display: block;
             background: #d8d566;
             background: -moz-linear-gradient(left, #d8d566 0%, #f43059 100%);
@@ -109,9 +116,11 @@
             background: -ms-linear-gradient(left, #d8d566 0%,#f43059 100%);
             background: linear-gradient(to right, #d8d566 0%,#f43059 100%);
             left: 100%;
-        }
+        }*/
 		
-        .htmlTimeline .events > li:nth-of-type(even):after { /* Move branches */
+        /*:nth-of-type(even)*/
+        /* Move branches */
+        .htmlTimeline .events > li:after { 
             display: block;
             background: #f43059;
             background: -moz-linear-gradient(left,  #f43059 0%, #d8d566 100%);
@@ -136,7 +145,8 @@
             top: 0em;
         }
 
-        .htmlTimeline .events > li:nth-of-type(even) .description:before {
+        /*:nth-of-type(even)*/
+        .htmlTimeline .events > li .description:before {
             right: 0;
         }
             .htmlTimeline .open .description {
@@ -150,7 +160,7 @@
     .htmlTimeline .timeline_dates > li {
         display: block;
         position: absolute;
-        left: 50%;
+        left: 50px;
         width: 100px;
         top: 0px;
         margin-left: 10px;
