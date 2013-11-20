@@ -1,9 +1,9 @@
-B1nj Timeline
+Html Timeline
 ========================
 
 **[Demo]**
 
-B1nj Timeline is a very simple jQuery plugin. The event is automatically placed on the timeline.
+Html Timeline is a very simple jQuery plugin. The event is automatically placed on the timeline.
 
 ![Timeline](http://www.b1nj.fr/blog/public/b1nj-timeline.jpg)
 
@@ -14,7 +14,7 @@ Include Css, html and script jQuery, moment, plugin on a page. This is all.
 **CSS**
 
 ```html
-<link rel="stylesheet" media="screen" href="css/b1njTimeline.css">
+<link rel="stylesheet" media="screen" href="css/HtmlTimeline.css">
 ```
 
 **HTML**
@@ -29,28 +29,28 @@ Include Css, html and script jQuery, moment, plugin on a page. This is all.
         </div>
     </li>
     <li>
-        <time datetime="1994-10">Septembre 1999</time>
-        <p>Rentrée des classes !</p>
+        <time datetime="1994-10">September 1999</time>
+        <p>First day of school!</p>
     </li>
 </ol>
 ```
-Format date is YYYY-MM-DD. Date before Jesus Christ d'ont work.
+Format date is YYYY-MM-DD. Dates in the B.C. era don't work.
 
 **jQuery**
 
 ```html
 <script src="jquery.js"></script>
 <script src="moment.min.js"></script>
-<script src="jquery.b1njTimeline.js"></script>
+<script src="jquery.HtmlTimeline.js"></script>
 <script>
     $(function() {
-        $('#timeline').b1njTimeline({
+        $('#timeline').HtmlTimeline({
             'height' : 600
         });
     });
 </script>
 ```
-You must adjust manually the height of timeline width the param height.
+You must adjust manually the height of timeline with the height parameter.
 
 Design by and css inspired [@csswizardry HTML/CSS timeline]
 
