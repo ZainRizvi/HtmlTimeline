@@ -99,10 +99,12 @@
         // Remove any old copy of the timeline dates in case we're regenerating them
         this.$element.find('ol.timeline_dates').remove();
         
+        //
+        // Determine tick spacing
+        //
         var date = this._dateStart.year();
         var num_years = this._dateEnd.diff(this._dateStart, 'years');
 
-        // Determine tick spacing
         var tickDuration = 1;
         if (num_years > 500) {
             tickDuration = 100;
@@ -122,7 +124,9 @@
             date = date + 1;
         }
 
+        //
         // Generate the timeline bar
+        //
         var html_dates = '<ol class="timeline_dates">';
         for (var i = date; i <= this._dateEnd.year(); i = i + tickDuration) {
             var top = this._getTop(new moment(i.toString(), 'YYYY'));

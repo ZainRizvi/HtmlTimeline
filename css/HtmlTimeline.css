@@ -1,12 +1,13 @@
 /* CSS Inspired by @csswizardry http://csswizardry.com/2011/03/coding-up-a-semantic-lean-timeline/ */
 .htmlTimeline {
-    width : 800px;
-    padding : 50px 0;
-    margin :0 auto 50px auto;
+    width: 800px;
+    padding: 50px 0;
+    margin: 0 auto 50px auto;
     position: relative;
 }
+
     .htmlTimeline .timelineContents {
-        background : url(f43059.gif) top center repeat-y;
+        background: url(f43059.gif) top center repeat-y;
         position: relative;
     }
 
@@ -21,7 +22,7 @@
         }
 
         .htmlTimeline .buttons button {
-            background-color: #f82030; 
+            background-color: #f82030;
             -webkit-border-top-left-radius: 6px;
             -moz-border-radius-topleft: 6px;
             border-top-left-radius: 6px;
@@ -66,11 +67,13 @@
         padding: 0;
         list-style: none;
     }
+
     .htmlTimeline * {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
     }
+
     .htmlTimeline .events:before, /* The dot */
     .htmlTimeline .events:after { /* The arrow */
         content: " ";
@@ -86,6 +89,7 @@
         -moz-border-radius: 20px;
         border-radius: 20px;
     }
+
     .htmlTimeline .events:after {
         margin-left: -7px;
         background: none;
@@ -95,88 +99,95 @@
         height: 0;
         top: auto;
         bottom: -7px;
-        -webkit-border-radius:0;
-        -moz-border-radius:0;
-        border-radius:0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
     }
-	
+
     .htmlTimeline .events > li {
         position: absolute;
         width: 330px;
         margin: 0 0 10px 0;
         top: 0;
-        text-align:right;
+        text-align: right;
     }
-        .htmlTimeline .event {
-            position: absolute;
-            width: 330px;
-            padding: 5px;
-            background: #fef8c4;
-            border: 1px solid #d8d566;
-            top: center;
-            margin: -1.5em 0 0 0;
-            border-radius: 5px;
-            -webkit-box-shadow: 1px -2px 1px #e9e9e9;
-            -moz-box-shadow: 1px -2px 1px #e9e9e9;
-            box-shadow: 1px -2px 0px #fdf5b0;
-            cursor: pointer;
-        }
+
+    .htmlTimeline .event {
+        position: absolute;
+        width: 330px;
+        padding: 5px;
+        background: #fef8c4;
+        border: 1px solid #d8d566;
+        top: center;
+        margin: -1.5em 0 0 0;
+        border-radius: 5px;
+        -webkit-box-shadow: 1px -2px 1px #e9e9e9;
+        -moz-box-shadow: 1px -2px 1px #e9e9e9;
+        box-shadow: 1px -2px 0px #fdf5b0;
+        cursor: pointer;
+    }
+
         .htmlTimeline .event:hover,
         .htmlTimeline .event.open {
             z-index: 100;
             background: #fcf085;
             border: 1px solid #d8d566;
         }
-        .htmlTimeline time {
-            font-weight: bold;
-        }
-        .htmlTimeline .events p {
-            margin: 0;
-        }
-		
-        .htmlTimeline .events > li:before,
-        .htmlTimeline .events > li:after {
-            content: " ";
-            width: 70px;
-            height: 1px;
-            background: #f43059;
-            position: absolute;
-            top: 0;
-            display: none;
-        }
-		
-        .htmlTimeline .events > li:nth-of-type(even) {
-            text-align: left;
-            right: 0;
-        }
-        .htmlTimeline .events > li:nth-of-type(odd):before { /* Move branches */
-            display: block;
-            background: #d8d566;
-            background: -moz-linear-gradient(left, #d8d566 0%, #f43059 100%);
-            background: -webkit-gradient(linear, left top, right top, color-stop(0%,#d8d566), color-stop(100%,#f43059));
-            background: -webkit-linear-gradient(left, #d8d566 0%,#f43059 100%);
-            background: -o-linear-gradient(left, #d8d566 0%,#f43059 100%);
-            background: -ms-linear-gradient(left, #d8d566 0%,#f43059 100%);
-            background: linear-gradient(to right, #d8d566 0%,#f43059 100%);
-            left: 100%;
-        }
-		
-        .htmlTimeline .events > li:nth-of-type(even):after { /* Move branches */
-            display: block;
-            background: #f43059;
-            background: -moz-linear-gradient(left,  #f43059 0%, #d8d566 100%);
-            background: -webkit-gradient(linear, left top, right top, color-stop(0%,#f43059), color-stop(100%,#d8d566));
-            background: -webkit-linear-gradient(left,  #f43059 0%,#d8d566 100%);
-            background: -o-linear-gradient(left,  #f43059 0%,#d8d566 100%);
-            background: -ms-linear-gradient(left,  #f43059 0%,#d8d566 100%);
-            background: linear-gradient(to right,  #f43059 0%,#d8d566 100%);
-            right: 100%;
-        }
-        .htmlTimeline .description {
-            height: 0;
-            overflow: hidden;
-            text-align: left;
-        }
+
+    .htmlTimeline time {
+        font-weight: bold;
+    }
+
+    .htmlTimeline .events p {
+        margin: 0;
+    }
+
+    .htmlTimeline .events > li:before,
+    .htmlTimeline .events > li:after {
+        content: " ";
+        width: 70px;
+        height: 1px;
+        background: #f43059;
+        position: absolute;
+        top: 0;
+        display: none;
+    }
+
+    .htmlTimeline .events > li:nth-of-type(even) {
+        text-align: left;
+        right: 0;
+    }
+
+    .htmlTimeline .events > li:nth-of-type(odd):before { /* Move branches */
+        display: block;
+        background: #d8d566;
+        background: -moz-linear-gradient(left, #d8d566 0%, #f43059 100%);
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%,#d8d566), color-stop(100%,#f43059));
+        background: -webkit-linear-gradient(left, #d8d566 0%,#f43059 100%);
+        background: -o-linear-gradient(left, #d8d566 0%,#f43059 100%);
+        background: -ms-linear-gradient(left, #d8d566 0%,#f43059 100%);
+        background: linear-gradient(to right, #d8d566 0%,#f43059 100%);
+        left: 100%;
+    }
+
+    .htmlTimeline .events > li:nth-of-type(even):after { /* Move branches */
+        display: block;
+        background: #f43059;
+        background: -moz-linear-gradient(left, #f43059 0%, #d8d566 100%);
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%,#f43059), color-stop(100%,#d8d566));
+        background: -webkit-linear-gradient(left, #f43059 0%,#d8d566 100%);
+        background: -o-linear-gradient(left, #f43059 0%,#d8d566 100%);
+        background: -ms-linear-gradient(left, #f43059 0%,#d8d566 100%);
+        background: linear-gradient(to right, #f43059 0%,#d8d566 100%);
+        right: 100%;
+    }
+
+    .htmlTimeline .description {
+        height: 0;
+        overflow: hidden;
+        text-align: left;
+    }
+
         .htmlTimeline .description:before {
             content: '+';
             display: block;
@@ -186,17 +197,20 @@
             top: 0em;
         }
 
-        .htmlTimeline .events > li:nth-of-type(even) .description:before {
-            right: 0;
+    .htmlTimeline .events > li:nth-of-type(even) .description:before {
+        right: 0;
+    }
+
+    .htmlTimeline .open .description {
+        margin-top: 10px;
+        height: auto;
+        -moz-transition: 1s ease;
+    }
+
+        .htmlTimeline .open .description:before {
+            content: '-';
         }
-            .htmlTimeline .open .description {
-                margin-top: 10px;
-                height: auto;
-                -moz-transition: 1s ease;
-            }
-            .htmlTimeline .open .description:before {
-                content: '-';
-            }
+
     .htmlTimeline .timeline_dates > li {
         display: block;
         position: absolute;
@@ -205,10 +219,12 @@
         top: 0px;
         margin-left: 10px;
     }
+
         .htmlTimeline .timeline_dates > li > div {
             position: absolute;
             margin-top: -.6em;
         }
+
         .htmlTimeline .timeline_dates > li:before {
             content: " ";
             width: 5px;
