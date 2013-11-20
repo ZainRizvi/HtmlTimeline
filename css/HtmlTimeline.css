@@ -1,11 +1,15 @@
 /* CSS Inspired by @csswizardry http://csswizardry.com/2011/03/coding-up-a-semantic-lean-timeline/ */
 .htmlTimeline {
-    background : url(f43059.gif) top center repeat-y;
     width : 800px;
     padding : 50px 0;
     margin :0 auto 50px auto;
     position: relative;
 }
+    .htmlTimeline .timelineContents {
+        background : url(f43059.gif) top center repeat-y;
+        position: relative;
+    }
+
     .htmlTimeline ol.events,
     .htmlTimeline ol.timeline_dates {
         margin: 0;

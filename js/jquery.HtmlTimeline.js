@@ -26,10 +26,22 @@
     Plugin.prototype.init = function () {
         var self = this;
 
-        $(this.element).addClass('events').wrap('<div class="htmlTimeline" />');
+        // Create a div to contain the timeline. All elements for the timeline will go in here
+        $(this.element).addClass('events').wrap('<div class="htmlTimeline" />').wrap('<div class="timelineContents" />');
 
-        this.$element = $(this.element).parent();
-        this.$element.css('height', this.options.height);
+        this.$element = $(this.element).parent().parent();
+        $(this.$element).find("ol.events").css('height', this.options.height);
+
+        // Add zoom in and zoom out buttons
+        this.$element.prepend('<div class="buttons">' +
+		        '                  <button id="timelineZoomOut">-</button>' +
+		                           '<button id="timelineZoomIn">+</button>' +
+		                      '</div>');
+        this.$element.prepend('');
+
+        this.$element.find("#timelineZoomIn").click(function() {
+            self.ZoomIn();
+        });
 
         // Find the old date, the newest date, and the time elapsed in between
         this._dateStart = new moment(this.$element.find('li:first time').attr('datetime'), 'YYYY-MM-DD');
@@ -40,7 +52,7 @@
         this.$element.find('ol.events > li').each(function () {
             $li = $(this);
             $li.wrapInner('<div class="event" />');
-            var date = new moment($li.find('time').attr('datetime'), 'YYYY-MM-DD')
+            var date = new moment($li.find('time').attr('datetime'), 'YYYY-MM-DD');
             $li.css('top', self._getTop(date));
 
             $li.on('click', function (e) {
@@ -48,12 +60,15 @@
             });
         });
 
-		//
-        // Create the timeline bar
-		//
+        this.generateTimelineDates();
+    };
+
+    Plugin.prototype.generateTimelineDates = function() {
+
         var date = this._dateStart.year();
         var num_years = this._dateEnd.diff(this._dateStart, 'years');
 
+        // Determine tick spacing
         var tickDuration = 1;
         if (num_years > 500) {
             tickDuration = 100;
@@ -73,19 +88,20 @@
             date = date + 1;
         }
 
+        // Generate the timeline bar
         var html_dates = '<ol class="timeline_dates">';
         for (var i = date; i <= this._dateEnd.year(); i = i + tickDuration) {
-            var top = self._getTop(new moment(i.toString(), 'YYYY'));
+            var top = this._getTop(new moment(i.toString(), 'YYYY'));
             html_dates += '<li style="top: ' + top + 'px"><div>' + i + '</div></li>';
         }
         html_dates += '<ol>';
 
+        // Add timeline to page
         this.$element.find('ol.events').after(html_dates);
-
     };
 
     Plugin.prototype._getTop = function (date) {
-        var top = date.diff(this._dateStart) * this.options.height / this._duration;
+        var top = date.diff(this._dateStart) * (this.options.height - this.options.margeTop * 2) / this._duration;
         top = Math.abs(parseInt(top));
         top = top + this.options.margeTop;
         return top;
@@ -102,6 +118,26 @@
 
     };
 
+    Plugin.prototype.ZoomIn = function() {
+        // Determine what the new time span of the timeline should be
+        var durationNew = this._duration * 0.75;
+        
+        this._dateStart.add((this._duration - durationNew) / 2, 'milliseconds');
+        this._dateEnd.subtract((this._duration - durationNew) / 2, 'milliseconds');
+        this._duration = durationNew;
+
+        alert("Start: " + this._dateStart.format("MMM Do YYYY"));
+        alert("End: " + this._dateEnd.format("MMM Do YYYY"));
+    };
+
+    Plugin.prototype.ZoomOut = function() {
+
+    };
+
+    Plugin.prototype.Zoom = function(zoom) {
+
+    };
+
     // Adding Plugin to the jQuery.fn object
     $.fn[pluginName] = function (options) {
         return this.each(function () {
@@ -110,4 +146,6 @@
             }
         });
     };
+    
+    
 }(jQuery, window));
