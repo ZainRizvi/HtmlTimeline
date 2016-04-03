@@ -5,7 +5,7 @@ Html Timeline
 
 Html Timeline is a very simple jQuery plugin. The event is automatically placed on the timeline.
 
-![Timeline](http://www.b1nj.fr/blog/public/b1nj-timeline.jpg)
+![Timeline](http://htmltimeline.azurewebsites.net/)
 
 ## Getting Started
 
